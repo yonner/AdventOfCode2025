@@ -27,7 +27,24 @@ function solvePart1(lines)
 {
     console.log(`\n--- Running Part 1 ---`);
 
+    let totalsum = 0;
 
+    for (const line of lines) 
+    {
+        const digits = line.split('').filter(char => !isNaN(parseInt(char)));
+
+        if (digits.length > 0) {
+            const firstDigit = digits[0];
+
+            const lastDigit = digits[digits.length -1];
+
+            const calibrationValue = parseInt(firstDigit + lastDigit);
+
+            totalsum += calibrationValue;
+        }
+    }
+
+    return totalsum;
 }
 
 function solvePart2(lines)
@@ -48,7 +65,7 @@ function main() {
     
     const answer2 = solvePart2(lines);
     
-    console.log(`\n✅ Part 2 Answer: ${answer1}`);
+    console.log(`\n✅ Part 2 Answer: ${answer2}`);
 }
 
 main();
